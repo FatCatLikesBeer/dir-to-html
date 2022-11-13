@@ -13,6 +13,8 @@ It generates links by walking a top-directory and its contents (files and subdir
 The top-directory is the directory this script is located in.
 The output HTML lists directories and files in no particular order.
 Does not work nicely when file & directory names inlude the following: spaces, special characters, emojis.
+Place script at the top most directory you wish to walk.
+'index.HTML' will be output in the same directory as this script.
 Caution: This also outputs hidden files and directories.
 """
 
@@ -36,7 +38,7 @@ body = []
 verify = ""
 
 # The os.walk() method has 3 outputs. First is directory path, then subdirectory names, then file names.
-# The os.walk() parameters allow the walking of symlinks.
+# The os.walk() method allows the walking of symlinks.
 # The following for loop walks the directories, formats links & names, then saves to 'body' list var.
 for dirPath, subDir, fileName in os.walk(dirAddress,followlinks=True):
     body += ('<h>',dirPath.removeprefix(prefix),'</h><br><br>','\n')        # Creates section titles.
@@ -45,7 +47,7 @@ for dirPath, subDir, fileName in os.walk(dirAddress,followlinks=True):
     body += ('<br>') # Break after each section.
 
 # File handling, writing, and verification of tail end of body.
-file = open('index.html','w')           # Open file
+file = open('index.html','w')           # Open index.HTML
 for i in header:                        # Write header
     file.write(i)
 for line in body:                       # Write body
