@@ -3,7 +3,7 @@
 #####
 #
 # dir_to_html.py
-# © Billy Bagel 2022
+# Copyright © 2022 Billy Bagel
 #
 #####
 
